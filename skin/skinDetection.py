@@ -18,7 +18,7 @@ def doDiff(img,want_color1,skin_color,size):
 	diff12=(255-want_color1[1])/(255-skin_color[1])
 	diff13=(255*(want_color1[1]-skin_color[1]))/(255-skin_color[1])
 	diff21=want_color1[2]/skin_color[2]
-	diff22=(255-want_color1[2])/(255-skin_color[2])
+	diff22=(255-want_color1[2])/(255-get_skin_color[2])
 	diff23=(255*(want_color1[2]-skin_color[2]))/(255-skin_color[2])
 	diff1=[diff01,diff11,diff21]
 	diff2=[diff02,diff12,diff22]
@@ -98,6 +98,24 @@ def change_skin(image_file,want_color1,output_path):
 		Hue=10
 		Saturation=65
 		Value=50
+		result=make_lower_upper(skin_color,Hue,Saturation,Value)
+		if(result[0]):
+			lower1=result[1]
+			upper1=result[2]
+			lower2=result[3]
+			upper2=result[4] 
+			skinMask1=cv2.inRange(converted, lower1, upper1)
+			skinMask2=cv2.inRange(converted, lower2, upper2)
+			skinMask=cv2.bitwise_or(skinMask1,skinMask2)
+		else:
+			lower=result[1]
+			upper=result[2]
+			skinMask = cv2.inRange(converted, lower, upper)
+    else:
+    	print("you are outside of some skin range but we are giving you same action as if HSV is not predetermined")
+    	Hue = skin_color[0]
+		Saturation = skin_color[1]
+		Value = skin_color[2]
 		result=make_lower_upper(skin_color,Hue,Saturation,Value)
 		if(result[0]):
 			lower1=result[1]

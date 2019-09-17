@@ -16,7 +16,7 @@ if __name__ == "__main__":
 		if(args.which=="color"):
 			a=args.col.strip('[] ')
 			b=a.split(',')
-			result=change_skin(inputImage,[int(b[0].strip()),int(b[1].strip()),int(b[2].strip())])
+			result=change_skin(inputImage,[int(b[0].strip()),int(b[1].strip()),int(b[2].strip())], args.res)
 		elif(args.which=="image"):
 			color=obtain_skin_color(args.col)
 			color=np.uint8([[color]])

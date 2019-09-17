@@ -111,9 +111,9 @@ def change_skin(image_file,want_color1,output_path):
 			lower=result[1]
 			upper=result[2]
 			skinMask = cv2.inRange(converted, lower, upper)
-    else:
-    	print("you are outside of some skin range but we are giving you same action as if HSV is not predetermined")
-    	Hue = skin_color[0]
+	else:
+		print("you are outside of some skin range but we are giving you same action as if HSV is not predetermined")
+		Hue = skin_color[0]
 		Saturation = skin_color[1]
 		Value = skin_color[2]
 		result=make_lower_upper(skin_color,Hue,Saturation,Value)

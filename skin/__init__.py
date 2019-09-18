@@ -13,7 +13,7 @@ if __name__ == "__main__":
 	args=parser.parse_args()
 
 	#with open(args.img,'rb') as inputImage:
-	args.img = inputImage
+	inputImage = args.img 
 	if(args.which=="color"):
 		a=args.col.strip('[] ')
 		b=a.split(',')

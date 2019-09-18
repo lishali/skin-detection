@@ -18,7 +18,7 @@ def doDiff(img,want_color1,skin_color,size):
 	diff12=(255-want_color1[1])/(255-skin_color[1])
 	diff13=(255*(want_color1[1]-skin_color[1]))/(255-skin_color[1])
 	diff21=want_color1[2]/skin_color[2]
-	diff22=(255-want_color1[2])/(255-get_skin_color[2])
+	diff22=(255-want_color1[2])/(255-skin_color[2])
 	diff23=(255*(want_color1[2]-skin_color[2]))/(255-skin_color[2])
 	diff1=[diff01,diff11,diff21]
 	diff2=[diff02,diff12,diff22]
